@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,221 +7,235 @@
 
   <style>
     :root{
-      --bg:#f6f8fc;
-      --bg2:#f2f7ff;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --line:#e6eaf2;
+      --bg: #0b1220;            /* dark navy */
+      --bg2:#0f172a;            /* slightly lighter */
+      --card:#0f1a2d;           /* cards */
+      --card2:#111f36;          /* hover / alt */
+      --line: rgba(255,255,255,.10);
 
-      --brand:#1d4ed8;   /* corporate blue */
-      --accent:#16a34a;  /* soft green */
-      --soft:#eef4ff;
-      --shadow:0 18px 45px rgba(15,23,42,.08);
+      --text:#eaf0ff;           /* main text */
+      --muted: rgba(234,240,255,.78);
+
+      --brand:#1d4ed8;          /* blue */
+      --accent:#16a34a;         /* green */
+
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 16px;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      color:var(--text);
+      color: var(--text);
       background:
-        radial-gradient(900px 520px at 15% 10%, rgba(29,78,216,.12), transparent),
-        radial-gradient(900px 520px at 85% 15%, rgba(22,163,74,.10), transparent),
+        radial-gradient(900px 520px at 15% 10%, rgba(29,78,216,.18), transparent),
+        radial-gradient(900px 520px at 85% 15%, rgba(22,163,74,.14), transparent),
         linear-gradient(180deg, var(--bg2), var(--bg));
     }
 
-    .wrap{max-width:1120px;margin:auto;padding:28px 18px 70px}
+    .wrap{ max-width:1120px; margin:0 auto; padding:26px 16px 70px; }
 
+    /* Top bar */
     .top{
-      display:flex;justify-content:space-between;align-items:center;gap:12px;
-      margin-bottom:22px
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
     }
-    .brand{
-      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px
+    .brandRow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 0;
     }
-    .logo{
-      width:38px;height:38px;border-radius:12px;
-      background:linear-gradient(135deg,var(--brand),var(--accent));
-      box-shadow:0 14px 30px rgba(29,78,216,.16);
+    .site-logo{
+      height:auto;
+      max-height:58px; /* requested size */
+      width:auto;
+      display:block;
     }
+    .brandText{
+      line-height:1.1;
+      min-width:0;
+    }
+    .brandText strong{ font-size:16px; }
+    .brandText span{ font-size:12px; color:var(--muted); }
+
     .badge{
-      font-size:13px;color:var(--muted);
+      font-size:13px;
+      color: var(--muted);
       border:1px solid var(--line);
-      padding:8px 12px;border-radius:999px;
-      background:rgba(255,255,255,.85);
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      white-space:nowrap;
     }
 
+    /* Hero */
     .hero{
-      background:var(--card);
       border:1px solid var(--line);
-      border-radius:18px;
-      padding:30px 26px;
-      box-shadow:var(--shadow);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border-radius: 18px;
+      padding:28px 22px;
+      box-shadow: var(--shadow);
     }
-    h1{margin:0 0 10px;font-size:36px;line-height:1.15}
-    .sub{margin:0;color:var(--muted);line-height:1.75;max-width:92ch}
+    h1{
+      margin:0 0 10px;
+      font-size:34px;
+      line-height:1.15;
+      letter-spacing: -0.2px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      line-height:1.75;
+      max-width: 92ch;
+    }
 
     .meta{
       margin-top:14px;
-      display:flex;flex-wrap:wrap;gap:10px;
-      color:var(--muted);font-size:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      color: var(--muted);
+      font-size:14px;
     }
     .meta span{
       border:1px solid var(--line);
-      background:#fff;border-radius:999px;
       padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
     }
 
-    .cta{
-      margin-top:16px;display:flex;gap:10px;flex-wrap:wrap
+    .ctaRow{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
     }
     .btn{
+      display:inline-block;
       text-decoration:none;
+      font-weight:700;
       padding:12px 16px;
       border-radius:12px;
       border:1px solid var(--line);
-      font-weight:700;
-      color:var(--text);
-      background:#fff;
+      background: rgba(255,255,255,.04);
+      color: var(--text);
     }
     .btn.primary{
-      border:none;color:#fff;
-      background:linear-gradient(135deg,var(--brand),var(--accent));
-    }
-    .btn.ghost{
-      background:transparent;
-      border:1px solid var(--line);
+      border:none;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
     }
 
+    /* Subtle hero visual (no heavy images) */
+    .heroVisual{
+      margin-top:16px;
+      height:180px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(650px 240px at 18% 30%, rgba(29,78,216,.55), transparent),
+        radial-gradient(650px 240px at 82% 70%, rgba(22,163,74,.45), transparent),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+
+    /* Sections */
     .section{
       margin-top:18px;
-      background:var(--card);
       border:1px solid var(--line);
-      border-radius:16px;
-      padding:22px;
-      box-shadow:0 10px 25px rgba(15,23,42,.05);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      padding:20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
     }
+    h2{
+      margin:0 0 12px;
+      font-size:20px;
+      letter-spacing:-0.2px;
+    }
+    p{ margin:0; color:var(--muted); line-height:1.75; }
+    ul{ margin:0; padding-left:18px; color:var(--muted); line-height:1.85; }
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:16px;
-      margin-top:14px;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:12px;
     }
-    .col4{grid-column:span 4}
-    .col6{grid-column:span 6}
-    .col12{grid-column:span 12}
+    .col6{ grid-column: span 6; }
+    .col4{ grid-column: span 4; }
+    .col12{ grid-column: span 12; }
 
-    @media(max-width:900px){
-      h1{font-size:30px}
-      .col4,.col6{grid-column:span 12}
+    @media (max-width: 900px){
+      h1{ font-size:30px; }
+      .col6, .col4 { grid-column: span 12; }
+      .badge{ display:none; }
     }
 
-    .box{
+    /* Service cards */
+    .card{
       border:1px solid var(--line);
-      border-radius:14px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       padding:16px;
-      background:linear-gradient(180deg,#ffffff, #fbfdff);
     }
-    h2{margin:0 0 12px;font-size:22px}
-    h3{margin:0 0 8px;font-size:16px}
-    p{margin:0;color:var(--muted);line-height:1.75}
-    ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.85}
+    .card h3{
+      margin:10px 0 6px;
+      font-size:16px;
+      color: var(--text);
+    }
+    .card p{ margin:0; }
 
-    .soft{
-      background:var(--soft);
+    .icon{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      box-shadow: 0 12px 26px rgba(29,78,216,.18);
+    }
+    .icon svg{ width:22px; height:22px; }
+
+    /* Trusted by */
+    .trustRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .pill{
       border:1px solid var(--line);
-      border-radius:14px;
-      padding:14px 16px;
-      color:var(--text);
-    }
-
-    .footer{
-      margin-top:22px;
-      text-align:center;
+      background: rgba(255,255,255,.04);
+      border-radius:999px;
+      padding:8px 12px;
+      color: var(--muted);
       font-size:13px;
-      color:var(--muted);
     }
- ..site-logo{
-  height:64px;
-  width:auto;
-  display:block;
-  margin-right:12px;
-}
-}
- /* ===== Dark Tech Upgrade (no images needed) ===== */
-body{
-  background:
-    radial-gradient(900px 520px at 15% 10%, rgba(29,78,216,.16), transparent),
-    radial-gradient(900px 520px at 85% 15%, rgba(22,163,74,.14), transparent),
-    linear-gradient(180deg, #070a12, #0b1220) !important;
-}
 
-.hero{
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)) !important;
-  border: 1px solid rgba(255,255,255,.10) !important;
-}
-
-.section{
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.10) !important;
-}
-
-.box, .service-card{
-  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06)) !important;
-  border: 1px solid rgba(255,255,255,.10) !important;
-}
-
-h1, h2, h3{ color: #ffffff !important; }
-p, ul, .sub, .badge, .meta, .footer{ color: rgba(255,255,255,.78) !important; }
-.meta span, .badge{
-  border: 1px solid rgba(255,255,255,.14) !important;
-  background: rgba(255,255,255,.06) !important;
-}
-.btn{
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.14) !important;
-  color: #ffffff !important;
-}
-.btn.primary{
-  border:none !important;
-  background: linear-gradient(135deg,var(--brand),var(--accent)) !important;
-}
-.hero-visual{
-  margin-top:16px;
-  height:240px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.10);
-  background:
-    radial-gradient(700px 260px at 20% 30%, rgba(29,78,216,.55), transparent),
-    radial-gradient(700px 260px at 80% 70%, rgba(22,163,74,.45), transparent),
-    linear-gradient(135deg, #0b1220, #020617);
-  box-shadow: 0 18px 45px rgba(0,0,0,.35);
-}
-.service-grid{
-  margin-top:14px;
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:14px;
-}
-.service-card{
-  grid-column:span 6;
-  border-radius:16px;
-  padding:16px;
-}
-.service-card h3{margin:10px 0 6px;font-size:16px}
-.service-card p{margin:0;line-height:1.7}
-.icon{
-  width:44px;height:44px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;
-  background:linear-gradient(135deg,var(--brand),var(--accent));
-  box-shadow:0 12px 26px rgba(29,78,216,.18);
-}
-.icon svg{width:22px;height:22px}
-@media(max-width:900px){ .service-card{grid-column:span 12;} }
-</style> 
+    /* Final CTA */
+    .finalCta{
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(650px 240px at 20% 30%, rgba(29,78,216,.28), transparent),
+        radial-gradient(650px 240px at 80% 70%, rgba(22,163,74,.22), transparent),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      padding:22px;
+    }
+    .finalCta h2{ margin-bottom:8px; }
+    .footer{
+      margin-top:20px;
+      text-align:center;
+      color: var(--muted);
+      font-size:13px;
+    }
+  </style>
 </head>
 
 <body>
@@ -232,147 +243,117 @@ p, ul, .sub, .badge, .meta, .footer{ color: rgba(255,255,255,.78) !important; }
 
     <!-- Top -->
     <div class="top">
-      <div class="brand">
-  <img src="mbq-solution-logo.svg" alt="MBQ Solution" class="site-logo">
-</div>
+      <div class="brandRow">
+        <img src="mbq-solution-logo.svg" alt="MBQ Solution" class="site-logo">
+        <div class="brandText">
+          <strong>MBQ Solution</strong><br>
+          <span>Software Development · Dubai, UAE</span>
+        </div>
+      </div>
       <div class="badge">Dubai, UAE · Remote</div>
     </div>
 
     <!-- Hero -->
-    <div <div class="hero-visual" aria-hidden="true"></div>
-class="hero">
-      <h1>Modern software, delivered with a corporate mindset</h1>
+    <div class="hero">
+      <h1>Modern software for real business needs</h1>
       <p class="sub">
-        MBQ Solution is a Dubai-based software development company helping businesses build and improve digital systems.
-        We deliver practical solutions that streamline operations, reduce manual work, and support growth — with clear
-        communication, reliable delivery, and maintainable technology.
+        MBQ Solution is a Dubai-based software development team helping businesses build reliable digital systems.
+        We focus on clear communication, predictable delivery, and maintainable solutions that improve operations
+        and reduce manual work.
       </p>
 
       <div class="meta">
         <span><strong>Location:</strong> Dubai, United Arab Emirates</span>
         <span><strong>Email:</strong> mbqsolution@gmail.com</span>
-        <span><strong>Focus:</strong> Clear · Reliable · Maintainable</span>
+        <span><strong>Work:</strong> Local & Remote</span>
       </div>
 
-      <div class="cta">
+      <div class="ctaRow">
         <a class="btn primary" href="mailto:mbqsolution@gmail.com">Contact us</a>
         <a class="btn" href="#services">Services</a>
-        <a class="btn ghost" href="#why">Why MBQ</a>
+        <a class="btn" href="#process">Process</a>
+        <a class="btn" href="#contact">Get a proposal</a>
       </div>
-    </div>
 
-    <!-- Purpose -->
-    <div class="section">
-      <h2>Purpose</h2>
-      <div class="soft">
-        <strong>We build software that makes work easier.</strong>
-        Our goal is to deliver clear business value and systems that remain stable and easy to improve over time.
-      </div>
+      <div class="heroVisual" aria-hidden="true"></div>
     </div>
 
     <!-- Services -->
     <div class="section" id="services">
-      <h2>Services</h2> <div class="service-grid">
-  <div class="service-card">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.8"/>
-        <path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <h3>Web Applications</h3>
-    <p>Modern web apps and internal tools designed around your business workflows.</p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M12 3v4M12 17v4M4 12h4M16 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0Z" stroke="currentColor" stroke-width="1.8"/>
-      </svg>
-    </div>
-    <h3>Automation</h3>
-    <p>Reduce manual work with reliable automation for reporting and operations.</p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M7 7h4v4H7V7Zm6 6h4v4h-4v-4Z" stroke="currentColor" stroke-width="1.8"/>
-        <path d="M11 9h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <h3>APIs & Integrations</h3>
-    <p>Connect systems (CRM, payments, email, databases) through clean integrations.</p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M8 18h9a4 4 0 0 0 0-8a5 5 0 0 0-9.7 1.5A3.5 3.5 0 0 0 8 18Z" stroke="currentColor" stroke-width="1.8"/>
-      </svg>
-    </div>
-    <h3>Cloud & DevOps</h3>
-    <p>Deploy and run services reliably with scalable cloud foundations.</p>
-  </div>
-</div>
-
+      <h2>Services</h2>
       <div class="grid">
-        <div class="col6 box">
-          <h3>Custom software development</h3>
-          <ul>
-            <li>Web applications</li>
-            <li>Internal business systems</li>
-            <li>Dashboards and operational tools</li>
-          </ul>
+        <div class="col6 card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Web Applications</h3>
+          <p>Modern web apps and internal tools designed around your workflows and users.</p>
         </div>
 
-        <div class="col6 box">
-          <h3>Automation & integrations</h3>
-          <ul>
-            <li>Workflow automation (reduce manual tasks)</li>
-            <li>API integrations between platforms</li>
-            <li>Connecting tools (forms, CRM, email, payments)</li>
-          </ul>
+        <div class="col6 card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3v4M12 17v4M4 12h4M16 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0Z" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h3>Automation</h3>
+          <p>Reduce manual tasks with automation for reporting, notifications, and operations.</p>
         </div>
 
-        <div class="col12 box">
-          <h3>Support & continuous improvement</h3>
-          <p>
-            Maintenance, performance improvements, bug fixing, and long-term support — keeping your system reliable and up to date.
-          </p>
+        <div class="col6 card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 7h4v4H7V7Zm6 6h4v4h-4v-4Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M11 9h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>APIs & Integrations</h3>
+          <p>Connect systems (CRM, email, payments, databases) through clean integrations.</p>
+        </div>
+
+        <div class="col6 card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M8 18h9a4 4 0 0 0 0-8a5 5 0 0 0-9.7 1.5A3.5 3.5 0 0 0 8 18Z" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h3>Cloud & Support</h3>
+          <p>Reliable deployments, maintenance, performance improvements, and ongoing support.</p>
         </div>
       </div>
     </div>
 
-    <!-- Development process -->
-    <div class="section">
+    <!-- Process -->
+    <div class="section" id="process">
       <h2>Professional development process</h2>
       <div class="grid">
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>1) Discovery</h3>
-          <p>We clarify goals, users, and requirements, and define what success looks like.</p>
+          <p>We clarify goals, users, requirements, and define what success looks like.</p>
         </div>
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>2) Plan</h3>
-          <p>We propose a clear scope, timeline, and approach — with priorities and quick wins.</p>
+          <p>We propose scope, timeline, priorities, and a simple delivery plan.</p>
         </div>
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>3) Build</h3>
-          <p>We develop in iterations with regular updates so progress stays visible and predictable.</p>
+          <p>We develop in iterations with regular updates so progress stays predictable.</p>
         </div>
-
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>4) Test</h3>
-          <p>We test functionality and stability to reduce issues and improve reliability.</p>
+          <p>We test for correctness and stability to reduce issues and improve reliability.</p>
         </div>
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>5) Deliver</h3>
-          <p>We release safely and provide basic documentation for confident day-to-day use.</p>
+          <p>We release safely and provide basic documentation for day-to-day use.</p>
         </div>
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>6) Support</h3>
-          <p>We remain available for fixes, improvements, and ongoing collaboration.</p>
+          <p>We remain available for fixes, improvements, and long-term collaboration.</p>
         </div>
       </div>
     </div>
@@ -387,45 +368,54 @@ class="hero">
     </div>
 
     <!-- Why MBQ -->
-    <div class="section" id="why">
+    <div class="section">
       <h2>Why MBQ Solution</h2>
       <div class="grid">
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>Clear communication</h3>
-          <p>We avoid unnecessary jargon and present options in a simple, practical way.</p>
+          <p>We explain options simply and avoid unnecessary jargon.</p>
         </div>
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>Reliable delivery</h3>
-          <p>We work in stages with frequent updates, keeping delivery predictable and transparent.</p>
+          <p>We deliver in stages with frequent updates and visible progress.</p>
         </div>
-        <div class="col4 box">
+        <div class="col4 card">
           <h3>Maintainable systems</h3>
-          <p>We build solutions that are easy to maintain and improve over time.</p>
+          <p>We build solutions that remain stable and easy to improve over time.</p>
         </div>
       </div>
     </div>
 
-    <!-- Project examples -->
+    <!-- Trusted by (honest, no client names) -->
     <div class="section">
-      <h2>Project examples</h2>
-      <ul>
-        <li>Internal platforms to manage requests, clients, and operations</li>
-        <li>Automation for reporting, notifications, and repetitive tasks</li>
-        <li>Integrations across websites, databases, email, and third-party tools</li>
-      </ul>
+      <h2>Trusted by</h2>
+      <p>
+        We work with organisations that value clarity, reliability and long-term support —
+        from early-stage businesses to established teams.
+      </p>
+      <div class="trustRow" aria-label="Trusted by types of organisations">
+        <div class="pill">Startups</div>
+        <div class="pill">Small & Medium Businesses</div>
+        <div class="pill">Operations Teams</div>
+        <div class="pill">Agencies</div>
+        <div class="pill">Remote-First Companies</div>
+      </div>
     </div>
 
-    <!-- Contact -->
-    <div class="section">
-      <h2>Contact</h2>
-      <p><strong>Location:</strong> Dubai, United Arab Emirates</p>
-      <p><strong>Email:</strong> mbqsolution@gmail.com</p>
-      <div class="cta" style="margin-top:12px">
-        <a class="btn primary" href="mailto:mbqsolution@gmail.com">Get in touch</a>
+    <!-- Final CTA -->
+    <div class="section finalCta" id="contact">
+      <h2>Ready to discuss your project?</h2>
+      <p>
+        Send a short message with what you need (even a rough idea). We’ll reply with clear next steps and a simple plan.
+      </p>
+      <div class="ctaRow" style="margin-top:12px;">
+        <a class="btn primary" href="mailto:mbqsolution@gmail.com">Email MBQ Solution</a>
+        <a class="btn" href="mailto:mbqsolution@gmail.com?subject=Project%20enquiry%20-%20MBQ%20Solution">Request a proposal</a>
       </div>
     </div>
 
     <div class="footer">© 2026 MBQ Solution · Dubai, UAE</div>
+
   </div>
 </body>
 </html>
