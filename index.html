@@ -1,32 +1,306 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MBQ Solution</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MBQ Solution | Dubai Software Development</title>
+
+  <style>
+    :root{
+      --bg:#f6f8fc;
+      --bg2:#f2f7ff;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e6eaf2;
+
+      --brand:#1d4ed8;   /* corporate blue */
+      --accent:#16a34a;  /* soft green */
+      --soft:#eef4ff;
+      --shadow:0 18px 45px rgba(15,23,42,.08);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(29,78,216,.12), transparent),
+        radial-gradient(900px 520px at 85% 15%, rgba(22,163,74,.10), transparent),
+        linear-gradient(180deg, var(--bg2), var(--bg));
+    }
+
+    .wrap{max-width:1120px;margin:auto;padding:28px 18px 70px}
+
+    .top{
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
+      margin-bottom:22px
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px
+    }
+    .logo{
+      width:38px;height:38px;border-radius:12px;
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      box-shadow:0 14px 30px rgba(29,78,216,.16);
+    }
+    .badge{
+      font-size:13px;color:var(--muted);
+      border:1px solid var(--line);
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.85);
+    }
+
+    .hero{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:30px 26px;
+      box-shadow:var(--shadow);
+    }
+    h1{margin:0 0 10px;font-size:36px;line-height:1.15}
+    .sub{margin:0;color:var(--muted);line-height:1.75;max-width:92ch}
+
+    .meta{
+      margin-top:14px;
+      display:flex;flex-wrap:wrap;gap:10px;
+      color:var(--muted);font-size:14px;
+    }
+    .meta span{
+      border:1px solid var(--line);
+      background:#fff;border-radius:999px;
+      padding:6px 10px;
+    }
+
+    .cta{
+      margin-top:16px;display:flex;gap:10px;flex-wrap:wrap
+    }
+    .btn{
+      text-decoration:none;
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      font-weight:700;
+      color:var(--text);
+      background:#fff;
+    }
+    .btn.primary{
+      border:none;color:#fff;
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+    }
+    .btn.ghost{
+      background:transparent;
+      border:1px solid var(--line);
+    }
+
+    .section{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:22px;
+      box-shadow:0 10px 25px rgba(15,23,42,.05);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:16px;
+      margin-top:14px;
+    }
+    .col4{grid-column:span 4}
+    .col6{grid-column:span 6}
+    .col12{grid-column:span 12}
+
+    @media(max-width:900px){
+      h1{font-size:30px}
+      .col4,.col6{grid-column:span 12}
+    }
+
+    .box{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+      background:linear-gradient(180deg,#ffffff, #fbfdff);
+    }
+    h2{margin:0 0 12px;font-size:22px}
+    h3{margin:0 0 8px;font-size:16px}
+    p{margin:0;color:var(--muted);line-height:1.75}
+    ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.85}
+
+    .soft{
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px 16px;
+      color:var(--text);
+    }
+
+    .footer{
+      margin-top:22px;
+      text-align:center;
+      font-size:13px;
+      color:var(--muted);
+    }
+  </style>
 </head>
+
 <body>
+  <div class="wrap">
 
-  <h1>MBQ Solution</h1>
+    <!-- Top -->
+    <div class="top">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>MBQ Solution</div>
+      </div>
+      <div class="badge">Dubai, UAE · Remote</div>
+    </div>
 
-  <p><strong>Servicios de software y soluciones digitales</strong></p>
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Modern software, delivered with a corporate mindset</h1>
+      <p class="sub">
+        MBQ Solution is a Dubai-based software development company helping businesses build and improve digital systems.
+        We deliver practical solutions that streamline operations, reduce manual work, and support growth — with clear
+        communication, reliable delivery, and maintainable technology.
+      </p>
 
-  <p>
-    Desarrollamos soluciones de software a medida para empresas.
-    Trabajamos en equipo y ofrecemos servicios de desarrollo, automatización
-    e integración de sistemas.
-  </p>
+      <div class="meta">
+        <span><strong>Location:</strong> Dubai, United Arab Emirates</span>
+        <span><strong>Email:</strong> mbqsolution@gmail.com</span>
+        <span><strong>Focus:</strong> Clear · Reliable · Maintainable</span>
+      </div>
 
-  <h2>Servicios</h2>
-  <ul>
-    <li>Desarrollo de software a medida</li>
-    <li>APIs e integraciones</li>
-    <li>Automatización y data</li>
-    <li>Cloud y DevOps</li>
-    <li>Soporte y mantenimiento</li>
-  </ul>
+      <div class="cta">
+        <a class="btn primary" href="mailto:mbqsolution@gmail.com">Contact us</a>
+        <a class="btn" href="#services">Services</a>
+        <a class="btn ghost" href="#why">Why MBQ</a>
+      </div>
+    </div>
 
-  <h2>Contacto</h2>
-  <p>Email: <strong>mbqsolution@gmail.com</strong></p>
+    <!-- Purpose -->
+    <div class="section">
+      <h2>Purpose</h2>
+      <div class="soft">
+        <strong>We build software that makes work easier.</strong>
+        Our goal is to deliver clear business value and systems that remain stable and easy to improve over time.
+      </div>
+    </div>
 
+    <!-- Services -->
+    <div class="section" id="services">
+      <h2>Services</h2>
+      <div class="grid">
+        <div class="col6 box">
+          <h3>Custom software development</h3>
+          <ul>
+            <li>Web applications</li>
+            <li>Internal business systems</li>
+            <li>Dashboards and operational tools</li>
+          </ul>
+        </div>
+
+        <div class="col6 box">
+          <h3>Automation & integrations</h3>
+          <ul>
+            <li>Workflow automation (reduce manual tasks)</li>
+            <li>API integrations between platforms</li>
+            <li>Connecting tools (forms, CRM, email, payments)</li>
+          </ul>
+        </div>
+
+        <div class="col12 box">
+          <h3>Support & continuous improvement</h3>
+          <p>
+            Maintenance, performance improvements, bug fixing, and long-term support — keeping your system reliable and up to date.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Development process -->
+    <div class="section">
+      <h2>Professional development process</h2>
+      <div class="grid">
+        <div class="col4 box">
+          <h3>1) Discovery</h3>
+          <p>We clarify goals, users, and requirements, and define what success looks like.</p>
+        </div>
+        <div class="col4 box">
+          <h3>2) Plan</h3>
+          <p>We propose a clear scope, timeline, and approach — with priorities and quick wins.</p>
+        </div>
+        <div class="col4 box">
+          <h3>3) Build</h3>
+          <p>We develop in iterations with regular updates so progress stays visible and predictable.</p>
+        </div>
+
+        <div class="col4 box">
+          <h3>4) Test</h3>
+          <p>We test functionality and stability to reduce issues and improve reliability.</p>
+        </div>
+        <div class="col4 box">
+          <h3>5) Deliver</h3>
+          <p>We release safely and provide basic documentation for confident day-to-day use.</p>
+        </div>
+        <div class="col4 box">
+          <h3>6) Support</h3>
+          <p>We remain available for fixes, improvements, and ongoing collaboration.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client focus -->
+    <div class="section">
+      <h2>Client focus</h2>
+      <p>
+        We prioritise clear communication, realistic expectations, and long-term relationships.
+        Our goal is to be a trusted technical partner — not just a one-off vendor.
+      </p>
+    </div>
+
+    <!-- Why MBQ -->
+    <div class="section" id="why">
+      <h2>Why MBQ Solution</h2>
+      <div class="grid">
+        <div class="col4 box">
+          <h3>Clear communication</h3>
+          <p>We avoid unnecessary jargon and present options in a simple, practical way.</p>
+        </div>
+        <div class="col4 box">
+          <h3>Reliable delivery</h3>
+          <p>We work in stages with frequent updates, keeping delivery predictable and transparent.</p>
+        </div>
+        <div class="col4 box">
+          <h3>Maintainable systems</h3>
+          <p>We build solutions that are easy to maintain and improve over time.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project examples -->
+    <div class="section">
+      <h2>Project examples</h2>
+      <ul>
+        <li>Internal platforms to manage requests, clients, and operations</li>
+        <li>Automation for reporting, notifications, and repetitive tasks</li>
+        <li>Integrations across websites, databases, email, and third-party tools</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="section">
+      <h2>Contact</h2>
+      <p><strong>Location:</strong> Dubai, United Arab Emirates</p>
+      <p><strong>Email:</strong> mbqsolution@gmail.com</p>
+      <div class="cta" style="margin-top:12px">
+        <a class="btn primary" href="mailto:mbqsolution@gmail.com">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="footer">© 2026 MBQ Solution · Dubai, UAE</div>
+  </div>
 </body>
 </html>
